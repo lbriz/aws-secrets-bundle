@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace AwsSecretsBundle\DependencyInjection;
 
@@ -19,7 +19,7 @@ class Configuration implements ConfigurationInterface
      *
      * @return \Symfony\Component\Config\Definition\Builder\TreeBuilder The tree builder
      */
-    public function getConfigTreeBuilder(): TreeBuilder
+    public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('aws_secrets');

@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 /**
  * This file belongs to Casechek. All rights reserved
  */
@@ -12,8 +12,8 @@ use Aws\SecretsManager\SecretsManagerClient;
  */
 class AwsSecretsEnvVarProvider implements AwsSecretsEnvVarProviderInterface
 {
-    public const AWS_SECRET_ID = 'SecretId';
-    public const AWS_SECRET_STRING = 'SecretString';
+    const AWS_SECRET_ID = 'SecretId';
+    const AWS_SECRET_STRING = 'SecretString';
 
     private $secretsManagerClient;
 

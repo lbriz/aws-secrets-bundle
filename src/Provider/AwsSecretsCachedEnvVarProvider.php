@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 /**
  * This file belongs to Casechek. All rights reserved
  */
@@ -12,13 +12,13 @@ use Psr\Cache\CacheItemPoolInterface;
  */
 class AwsSecretsCachedEnvVarProvider implements AwsSecretsEnvVarProviderInterface
 {
-    public const CACHE_KEY_PREFIX = 'aws_secret';
+    const CACHE_KEY_PREFIX = 'aws_secret';
 
     private $cacheItemPool;
     private $decorated;
     private $ttl;
 
-    public function __construct(CacheItemPoolInterface $cacheItemPool, AwsSecretsEnvVarProviderInterface $decorated, int $ttl = 60)
+    public function __construct(CacheItemPoolInterface $cacheItemPool, AwsSecretsEnvVarProviderInterface $decorated, $ttl = 60)
     {
         $this->cacheItemPool = $cacheItemPool;
         $this->decorated = $decorated;

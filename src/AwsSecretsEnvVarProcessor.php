@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace AwsSecretsBundle;
 
@@ -13,8 +13,8 @@ use Symfony\Component\DependencyInjection\Exception\RuntimeException;
  */
 class AwsSecretsEnvVarProcessor implements EnvVarProcessorInterface
 {
-    public const AWS_SECRET_ID = 'SecretId';
-    public const AWS_SECRET_STRING = 'SecretString';
+    const AWS_SECRET_ID = 'SecretId';
+    const AWS_SECRET_STRING = 'SecretString';
 
     private $delimiter;
     private $decodedSecrets = [];
@@ -23,8 +23,8 @@ class AwsSecretsEnvVarProcessor implements EnvVarProcessorInterface
 
     public function __construct(
         AwsSecretsEnvVarProviderInterface $provider,
-        bool $ignore = false,
-        string $delimiter = ','
+        $ignore = false,
+        $delimiter = ','
     ) {
         $this->ignore = $ignore;
         $this->delimiter = $delimiter;
@@ -64,7 +64,7 @@ class AwsSecretsEnvVarProcessor implements EnvVarProcessorInterface
         return $result;
     }
 
-    public function setIgnore(bool $ignore): void
+    public function setIgnore($ignore)
     {
         $this->ignore = $ignore;
     }
@@ -73,7 +73,7 @@ class AwsSecretsEnvVarProcessor implements EnvVarProcessorInterface
      * @return string[] The PHP-types managed by getEnv(), keyed by prefixes
      * @codeCoverageIgnore
      */
-    public static function getProvidedTypes(): array
+    public static function getProvidedTypes()
     {
         return [
             'aws' => 'bool|int|float|string',
